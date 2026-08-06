@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-/* Define custom simple theme variables if needed */
+/* Simple, flat color system */
 @theme {
-  --color-primary-600: #1e3a8a; /* Neutral Deep Blue */
-  --color-primary-700: #1d4ed8;
-  --color-primary-50: #f0fdf4;
+  --color-primary-50: #f1f8f2;
+  --color-primary-100: #dfeee2;
+  --color-primary-600: #3f7f58;
+  --color-primary-700: #2f6f4e;
 }
 
 body {
   margin: 0;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  background-color: #f9fafb; /* bg-gray-50 */
-  color: #0f172a; /* text-slate-950 */
+  background-color: #f7f9f6;
+  color: #111827;
 }
 
 #root {

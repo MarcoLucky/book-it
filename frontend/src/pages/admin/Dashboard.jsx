@@ -70,26 +70,26 @@ export default function AdminDashboard() {
                 <>
                     {/* Stats Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Total Bookings</h3>
                             <p className="mt-2 text-3xl font-extrabold text-slate-900">{stats?.total_bookings}</p>
                         </div>
-                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Pending Approvals</h3>
                             <p className="mt-2 text-3xl font-extrabold text-yellow-600">{stats?.pending_bookings}</p>
                         </div>
-                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Active Amenities</h3>
-                            <p className="mt-2 text-3xl font-extrabold text-blue-600">{stats?.total_amenities}</p>
+                            <p className="mt-2 text-3xl font-extrabold text-green-700">{stats?.total_amenities}</p>
                         </div>
-                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Residents Registered</h3>
                             <p className="mt-2 text-3xl font-extrabold text-green-700">{stats?.total_users}</p>
                         </div>
                     </div>
 
                     {/* Pending Approvals Table */}
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div className="bg-white border border-gray-200 rounded-lg">
                         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                             <h2 className="text-lg font-bold text-gray-900">Pending Approvals Queue</h2>
                             <span className="bg-yellow-100 text-yellow-800 text-xs px-2.5 py-0.5 rounded font-semibold uppercase">
@@ -119,7 +119,7 @@ export default function AdminDashboard() {
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200 text-sm">
                                     {recentBookings.map((booking) => (
-                                        <tr key={booking.id} className="hover:bg-slate-50 transition-colors">
+                                        <tr key={booking.id} className="hover:bg-gray-50 transition-colors">
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="font-semibold text-gray-900">{booking.user?.name}</div>
                                                 <div className="text-xs text-gray-500">{booking.user?.email}</div>

@@ -47,20 +47,20 @@ export default function AddAdmin() {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-950 mb-1">Create Administrative Account</h2>
             <p className="text-xs text-gray-500 mb-6">
                 Register a new administrator with credentials to access all CRUD features.
             </p>
 
             {successMessage && (
-                <div className="mb-6 bg-green-50 border-l-4 border-green-400 p-4 text-sm text-green-700 font-semibold">
+                <div className="mb-6 bg-green-50 border border-green-200 rounded-md p-4 text-sm text-green-700 font-semibold">
                     {successMessage}
                 </div>
             )}
 
             {errors?.general && (
-                <div className="mb-6 bg-red-50 border-l-4 border-red-400 p-4 text-sm text-red-700 font-semibold">
+                <div className="mb-6 bg-red-50 border border-red-200 rounded-md p-4 text-sm text-red-700 font-semibold">
                     {errors.general[0]}
                 </div>
             )}
@@ -73,7 +73,7 @@ export default function AddAdmin() {
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                     />
                     {errors?.name && (
                         <p className="mt-1 text-xs text-red-700">{errors.name[0]}</p>
@@ -87,7 +87,7 @@ export default function AddAdmin() {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                     />
                     {errors?.email && (
                         <p className="mt-1 text-xs text-red-700">{errors.email[0]}</p>
@@ -101,7 +101,7 @@ export default function AddAdmin() {
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                     />
                     {errors?.password && (
                         <p className="mt-1 text-xs text-red-700">{errors.password[0]}</p>
@@ -115,7 +115,7 @@ export default function AddAdmin() {
                         required
                         value={passwordConfirmation}
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                     />
                 </div>
 
@@ -123,7 +123,7 @@ export default function AddAdmin() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                        className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:opacity-50"
                     >
                         {loading ? 'Creating...' : 'Create Admin'}
                     </button>

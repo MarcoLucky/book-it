@@ -130,7 +130,7 @@ export default function AmenitiesCrud() {
                 </div>
                 <button
                     onClick={handleOpenCreate}
-                    className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                    className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 transition-colors"
                 >
                     Add New Amenity
                 </button>
@@ -139,7 +139,7 @@ export default function AmenitiesCrud() {
             {loading ? (
                 <div className="text-gray-500 font-medium py-4">Loading amenities...</div>
             ) : (
-                <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
@@ -163,7 +163,7 @@ export default function AmenitiesCrud() {
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200 text-sm">
                                 {amenities.map((amenity) => (
-                                    <tr key={amenity.id} className="hover:bg-slate-50 transition-colors">
+                                    <tr key={amenity.id} className="hover:bg-gray-50 transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="font-semibold text-slate-900">{amenity.name}</div>
                                             <div className="text-xs text-slate-500 max-w-sm truncate">{amenity.description || 'No description'}</div>
@@ -177,7 +177,7 @@ export default function AmenitiesCrud() {
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span className={`inline-flex px-2.5 py-0.5 text-xs rounded font-semibold uppercase ${
                                                 amenity.status === 'active'
-                                                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                                                    ? 'bg-green-100 text-green-800 border border-green-200'
                                                     : 'bg-slate-100 text-slate-700 border border-slate-200'
                                             }`}>
                                                 {amenity.status}
@@ -186,7 +186,7 @@ export default function AmenitiesCrud() {
                                         <td className="px-6 py-4 whitespace-nowrap text-right space-x-3 text-sm font-semibold">
                                             <button
                                                 onClick={() => handleOpenEdit(amenity)}
-                                                className="text-blue-600 hover:text-blue-900"
+                                                className="text-green-700 hover:text-green-900"
                                             >
                                                 Edit
                                             </button>
@@ -215,8 +215,8 @@ export default function AmenitiesCrud() {
 
             {/* Simple Modal Form */}
             {showModal && (
-                <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/50 flex items-center justify-center p-4">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-xl max-w-md w-full p-6 space-y-6">
+                <div className="fixed inset-0 z-50 overflow-y-auto bg-gray-900/40 flex items-center justify-center p-4">
+                    <div className="bg-white border border-gray-200 rounded-lg max-w-md w-full p-6 space-y-6">
                         <div className="border-b border-slate-200 pb-3 flex justify-between items-center">
                             <h3 className="text-lg font-bold text-gray-900">
                                 {editingAmenity ? `Edit ${editingAmenity.name}` : 'Create New Amenity'}
@@ -225,7 +225,7 @@ export default function AmenitiesCrud() {
                         </div>
 
                         {error && (
-                            <div className="bg-red-50 border-l-4 border-red-400 p-4 text-xs text-red-700 font-medium">
+                            <div className="rounded-md border border-red-200 bg-red-50 p-4 text-xs text-red-700 font-medium">
                                 {error}
                             </div>
                         )}
@@ -239,7 +239,7 @@ export default function AmenitiesCrud() {
                                     required
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 />
                             </div>
 
@@ -250,7 +250,7 @@ export default function AmenitiesCrud() {
                                     name="location"
                                     value={formData.location}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 />
                             </div>
 
@@ -281,7 +281,7 @@ export default function AmenitiesCrud() {
                                         min="1"
                                         value={formData.capacity}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                     />
                                 </div>
 
@@ -291,7 +291,7 @@ export default function AmenitiesCrud() {
                                         name="status"
                                         value={formData.status}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                     >
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>
@@ -306,7 +306,7 @@ export default function AmenitiesCrud() {
                                     rows="3"
                                     value={formData.description}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 />
                             </div>
 
@@ -321,7 +321,7 @@ export default function AmenitiesCrud() {
                                 <button
                                     type="submit"
                                     disabled={saving}
-                                    className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                                    className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:opacity-50"
                                 >
                                     {saving ? 'Saving...' : 'Save Facility'}
                                 </button>

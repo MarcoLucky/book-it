@@ -180,7 +180,7 @@ export default function BookingsCrud() {
                 </div>
                 <button
                     onClick={handleOpenCreate}
-                    className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                    className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 transition-colors"
                 >
                     Book for Resident
                 </button>
@@ -189,7 +189,7 @@ export default function BookingsCrud() {
             {loading ? (
                 <div className="text-gray-500 font-medium py-4">Loading bookings data...</div>
             ) : (
-                <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
@@ -216,7 +216,7 @@ export default function BookingsCrud() {
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200 text-sm">
                                 {bookings.map((booking) => (
-                                    <tr key={booking.id} className="hover:bg-slate-50 transition-colors">
+                                    <tr key={booking.id} className="hover:bg-gray-50 transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="flex items-center gap-3">
                                                 {booking.user?.profile_image_url ? (
@@ -281,7 +281,7 @@ export default function BookingsCrud() {
                                             <button
                                                 onClick={() => handleOpenEdit(booking)}
                                                 disabled={actionLoading}
-                                                className="text-blue-600 hover:text-blue-900"
+                                                className="text-green-700 hover:text-green-900"
                                             >
                                                 Edit
                                             </button>
@@ -311,8 +311,8 @@ export default function BookingsCrud() {
 
             {/* Simple Modal Form */}
             {showModal && (
-                <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/50 flex items-center justify-center p-4">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-xl max-w-md w-full p-6 space-y-6">
+                <div className="fixed inset-0 z-50 overflow-y-auto bg-gray-900/40 flex items-center justify-center p-4">
+                    <div className="bg-white border border-gray-200 rounded-lg max-w-md w-full p-6 space-y-6">
                         <div className="border-b border-slate-200 pb-3 flex justify-between items-center">
                             <h3 className="text-lg font-bold text-gray-900">
                                 {editingBooking ? 'Edit Booking details' : 'Book on behalf of Resident'}
@@ -321,7 +321,7 @@ export default function BookingsCrud() {
                         </div>
 
                         {error && (
-                            <div className="bg-red-50 border-l-4 border-red-400 p-4 text-xs text-red-700 font-medium">
+                            <div className="rounded-md border border-red-200 bg-red-50 p-4 text-xs text-red-700 font-medium">
                                 {error}
                             </div>
                         )}
@@ -335,7 +335,7 @@ export default function BookingsCrud() {
                                     disabled={!!editingBooking}
                                     value={formData.user_id}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm disabled:bg-gray-100"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm disabled:bg-gray-100"
                                 >
                                     <option value="" disabled>Select resident...</option>
                                     {users.map(u => (
@@ -352,7 +352,7 @@ export default function BookingsCrud() {
                                     disabled={!!editingBooking}
                                     value={formData.amenity_id}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm disabled:bg-gray-100"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm disabled:bg-gray-100"
                                 >
                                     <option value="" disabled>Select facility...</option>
                                     {amenities.map(a => (
@@ -370,7 +370,7 @@ export default function BookingsCrud() {
                                         required
                                         value={formData.start_time}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                     />
                                 </div>
 
@@ -382,7 +382,7 @@ export default function BookingsCrud() {
                                         required
                                         value={formData.end_time}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                     />
                                 </div>
                             </div>
@@ -393,7 +393,7 @@ export default function BookingsCrud() {
                                     name="status"
                                     value={formData.status}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 >
                                     <option value="pending">Pending</option>
                                     <option value="approved">Approved</option>
@@ -409,7 +409,7 @@ export default function BookingsCrud() {
                                     rows="2"
                                     value={formData.purpose}
                                     onChange={handleChange}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 />
                             </div>
 
@@ -424,7 +424,7 @@ export default function BookingsCrud() {
                                 <button
                                     type="submit"
                                     disabled={saving}
-                                    className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                                    className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:opacity-50"
                                 >
                                     {saving ? 'Saving...' : 'Save Booking'}
                                 </button>

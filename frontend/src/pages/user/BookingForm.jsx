@@ -137,7 +137,7 @@ export default function BookingForm() {
     }
 
     return (
-        <div className="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <div className="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-950 mb-1">
                 {isEditMode ? 'Modify Reservation Slot' : 'Request Amenity Reservation'}
             </h2>
@@ -146,7 +146,7 @@ export default function BookingForm() {
             </p>
 
             {error && (
-                <div className="mb-6 bg-red-50 border-l-4 border-red-400 p-4 text-sm text-red-700 font-medium">
+                <div className="mb-6 rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700 font-medium">
                     {error}
                 </div>
             )}
@@ -162,7 +162,7 @@ export default function BookingForm() {
                         disabled={isEditMode || !!urlAmenityId}
                         value={formData.amenity_id}
                         onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm disabled:bg-gray-100 disabled:text-slate-400"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm disabled:bg-gray-100 disabled:text-slate-400"
                     >
                         <option value="" disabled>Select facility...</option>
                         {amenities.map((amenity) => (
@@ -185,7 +185,7 @@ export default function BookingForm() {
                             required
                             value={formData.start_time}
                             onChange={handleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                         />
                     </div>
 
@@ -200,7 +200,7 @@ export default function BookingForm() {
                             required
                             value={formData.end_time}
                             onChange={handleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                         />
                     </div>
                 </div>
@@ -216,7 +216,7 @@ export default function BookingForm() {
                         placeholder="e.g. Birthday Party, Basketball match, Resident Meeting..."
                         value={formData.purpose}
                         onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                     />
                 </div>
 
@@ -230,7 +230,7 @@ export default function BookingForm() {
                     <button
                         type="submit"
                         disabled={loading || (isEditMode && error.includes('pending'))}
-                        className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                        className="px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:opacity-50"
                     >
                         {loading ? 'Submitting...' : isEditMode ? 'Save Changes' : 'Request Booking'}
                     </button>

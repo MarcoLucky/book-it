@@ -24,7 +24,7 @@ export default function LandingPage() {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
             {/* Navbar */}
-            <header className="bg-transparent">
+            <header className="bg-white border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                         <img
@@ -37,13 +37,13 @@ export default function LandingPage() {
                     <div className="flex items-center space-x-3">
                         <Link
                             to="/login"
-                            className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100"
+                            className="rounded-md border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-50"
                         >
                             Login
                         </Link>
                         <Link
                             to="/register"
-                            className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-slate-800"
+                            className="rounded-md bg-green-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-800"
                         >
                             Register
                         </Link>
@@ -55,12 +55,12 @@ export default function LandingPage() {
             <main className="w-full px-6 py-12 flex-grow">
                 <div className="mx-auto mb-16 grid max-w-[1600px] gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
                     <div className="space-y-8">
-                        <span className="inline-flex items-center rounded-full bg-blue-100 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
-                            Elevate your resident experience
+                        <span className="inline-flex items-center rounded-md bg-green-100 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-green-800">
+                            Bloomfield resident portal
                         </span>
                         <div className="space-y-4">
                             <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-                                Luxury community amenities, effortless booking.
+                                Book community amenities with less hassle.
                             </h1>
                             <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                                 Book function halls, sports courts, and shared spaces with a clean portal made for Bloomfield residents. Fast, modern, and community-centered.
@@ -68,25 +68,25 @@ export default function LandingPage() {
                         </div>
                         
                         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                            <div className="rounded-3xl bg-slate-50 p-6 text-center shadow-sm">
+                            <div className="rounded-lg border border-gray-200 bg-white p-5 text-center">
                                 <p className="text-3xl font-semibold text-slate-900">120+</p>
-                                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-slate-500">Amenities</p>
+                                <p className="mt-2 text-xs uppercase tracking-wide text-slate-500">Amenities</p>
                             </div>
-                            <div className="rounded-3xl bg-slate-50 p-6 text-center shadow-sm">
+                            <div className="rounded-lg border border-gray-200 bg-white p-5 text-center">
                                 <p className="text-3xl font-semibold text-slate-900">4.9</p>
-                                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-slate-500">Resident rating</p>
+                                <p className="mt-2 text-xs uppercase tracking-wide text-slate-500">Resident rating</p>
                             </div>
-                            <div className="rounded-3xl bg-slate-50 p-6 text-center shadow-sm">
+                            <div className="rounded-lg border border-gray-200 bg-white p-5 text-center">
                                 <p className="text-3xl font-semibold text-slate-900">24/7</p>
-                                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-slate-500">Support</p>
+                                <p className="mt-2 text-xs uppercase tracking-wide text-slate-500">Support</p>
                             </div>
-                            <div className="rounded-3xl bg-slate-50 p-6 text-center shadow-sm">
+                            <div className="rounded-lg border border-gray-200 bg-white p-5 text-center">
                                 <p className="text-3xl font-semibold text-slate-900">100%</p>
-                                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-slate-500">Verified bookings</p>
+                                <p className="mt-2 text-xs uppercase tracking-wide text-slate-500">Verified bookings</p>
                             </div>
                         </div>
                     </div>
-                    <div className="overflow-hidden rounded-[32px] border border-gray-200 shadow-2xl">
+                    <div className="overflow-hidden rounded-lg border border-gray-200">
                         <img
                             src="/landing-hero.jfif"
                             alt="Bloomfield entrance"
@@ -106,7 +106,7 @@ export default function LandingPage() {
                         {amenities.map((amenity) => (
                             <div
                                 key={amenity.id}
-                                className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm flex flex-col justify-between"
+                                className="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col justify-between"
                             >
                                 {amenity.image_url ? (
                                     <img

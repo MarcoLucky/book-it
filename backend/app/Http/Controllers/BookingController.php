@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Amenity;
 use App\Models\User;
+use App\Services\PhpMailerService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Carbon\Carbon;
@@ -69,6 +70,9 @@ class BookingController extends Controller
             'purpose' => $request->purpose,
             'status' => 'pending',
         ]);
+
+        $booking->load(['user', 'amenity']);
+        $this->sendAdminBookingNotification($booking);
 
         return response()->json([
             'message' => 'Booking request submitted successfully',
@@ -230,6 +234,7 @@ class BookingController extends Controller
 
         $startTime = Carbon::parse($request->start_time);
         $endTime = Carbon::parse($request->end_time);
+        $previousStatus = $booking->status;
 
         // Check conflict if status is set to approved or pending
         if (in_array($request->status, ['approved', 'pending'])) {
@@ -258,9 +263,14 @@ class BookingController extends Controller
             'status' => $request->status,
         ]);
 
+        $updatedBooking = $booking->fresh()->load(['user', 'amenity']);
+        if ($request->status === 'approved' && $previousStatus !== 'approved') {
+            $this->sendApprovalNotification($updatedBooking);
+        }
+
         return response()->json([
             'message' => 'Booking updated successfully by Admin',
-            'booking' => $booking->load(['user', 'amenity'])
+            'booking' => $updatedBooking
         ]);
     }
 
@@ -304,5 +314,41 @@ class BookingController extends Controller
     {
         $users = User::orderBy('name')->get(['id', 'name', 'email', 'role']);
         return response()->json($users);
+    }
+
+    protected function sendAdminBookingNotification(Booking $booking): void
+    {
+        $adminEmails = User::where('role', 'admin')->pluck('email')->filter()->all();
+
+        if (empty($adminEmails)) {
+            $adminEmails[] = config('mail.from.address', 'hello@example.com');
+        }
+
+        $service = app(PhpMailerService::class);
+        $subject = 'New amenity booking request received';
+        $body = view('emails.booking-submitted-admin', [
+            'booking' => $booking,
+            'user' => $booking->user,
+            'amenity' => $booking->amenity,
+        ])->render();
+
+        foreach ($adminEmails as $adminEmail) {
+            $service->send($adminEmail, $subject, $body);
+        }
+    }
+
+    protected function sendApprovalNotification(Booking $booking): void
+    {
+        if ($booking->user?->email) {
+            $service = app(PhpMailerService::class);
+            $subject = 'Your booking request has been approved';
+            $body = view('emails.booking-approved-user', [
+                'booking' => $booking,
+                'user' => $booking->user,
+                'amenity' => $booking->amenity,
+            ])->render();
+
+            $service->send($booking->user->email, $subject, $body);
+        }
     }
 }

@@ -18,15 +18,15 @@ export default function AdminLayout({ children }) {
         { name: 'Manage Amenities', path: '/admin/amenities' },
         { name: 'Manage Bookings', path: '/admin/bookings' },
         { name: 'Add Admin', path: '/admin/add-admin' },
-         { name: 'Profile', path: '/admin/profile' },
+        { name: 'Profile', path: '/admin/profile' },
     ];
 
     return (
-        <div className="flex min-h-screen bg-gray-100">
+        <div className="flex min-h-screen bg-gray-50">
             {/* Sidebar */}
-            <aside className="w-64 bg-slate-900 text-white flex flex-col hidden md:flex">
-                <div className="h-16 flex items-center px-6 border-b border-slate-800">
-                    <span className="font-semibold text-lg tracking-wider text-slate-100">Bloomfield Admin</span>
+            <aside className="w-64 bg-gray-950 text-white border-r border-gray-950 flex flex-col hidden md:flex">
+                <div className="h-16 flex items-center px-6 border-b border-gray-900">
+                    <span className="font-semibold text-lg text-white">Bloomfield Admin</span>
                 </div>
                 <nav className="flex-1 px-4 py-6 space-y-2">
                     {navItems.map((item) => {
@@ -37,8 +37,8 @@ export default function AdminLayout({ children }) {
                                 to={item.path}
                                 className={`block px-4 py-2.5 rounded text-sm font-medium transition-colors ${
                                     isActive
-                                        ? 'bg-blue-600 text-white'
-                                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                                        ? 'bg-gray-800 text-white'
+                                        : 'text-gray-300 hover:bg-gray-900 hover:text-white'
                                 }`}
                             >
                                 {item.name}
@@ -46,12 +46,12 @@ export default function AdminLayout({ children }) {
                         );
                     })}
                 </nav>
-                <div className="p-4 border-t border-slate-850">
-                    <div className="text-sm font-medium truncate text-slate-200">{user?.name}</div>
-                    <div className="text-xs text-slate-400 truncate mb-2">Administrator</div>
+                <div className="p-4 border-t border-gray-900">
+                   
+                   
                     <button
                         onClick={handleLogout}
-                        className="w-full text-left text-xs font-semibold text-red-400 hover:text-red-300 py-1 transition-colors"
+                        className="w-full text-left text-xs font-semibold text-red-200 hover:text-white py-1 transition-colors"
                     >
                         Log Out
                     </button>
@@ -61,13 +61,8 @@ export default function AdminLayout({ children }) {
             {/* Main Area */}
             <div className="flex-1 flex flex-col">
                 {/* Header */}
-                <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
-                    <div className="flex items-center space-x-4">
-                        <span className="md:hidden font-semibold text-lg text-slate-900">Bloomfield Admin</span>
-                        <span className="bg-slate-200 text-slate-800 text-xs px-2 py-1 rounded font-semibold uppercase tracking-wider hidden md:inline-block">
-                            Admin Mode
-                        </span>
-                    </div>
+                <header className="h-16 bg-gray-950 border-b border-gray-900 flex items-center justify-between px-6 md:bg-white md:border-gray-200">
+                    
                     {/* Mobile Navigation Panel */}
                     <div className="flex items-center space-x-4">
                         <div className="md:hidden flex space-x-2">
@@ -77,8 +72,8 @@ export default function AdminLayout({ children }) {
                                     to={item.path}
                                     className={`text-xs font-medium px-2 py-1 rounded ${
                                         location.pathname === item.path
-                                            ? 'bg-blue-50 text-blue-600 font-semibold'
-                                            : 'text-gray-600 hover:text-gray-900'
+                                            ? 'bg-gray-800 text-white font-semibold'
+                                            : 'text-gray-300 hover:bg-gray-900 hover:text-white'
                                     }`}
                                 >
                                     {item.name.replace('Manage ', '')}
@@ -86,14 +81,11 @@ export default function AdminLayout({ children }) {
                             ))}
                             <button
                                 onClick={handleLogout}
-                                className="text-xs font-medium text-red-500 px-1 py-1 hover:text-red-700"
+                                className="text-xs font-medium text-red-200 px-1 py-1 hover:text-white"
                             >
                                 Log Out
                             </button>
                         </div>
-                        <span className="text-sm font-medium text-gray-700 hidden md:block">
-                            {user?.name}
-                        </span>
                     </div>
                 </header>
 

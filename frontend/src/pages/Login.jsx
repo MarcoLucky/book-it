@@ -51,14 +51,14 @@ export default function Login() {
             </div>
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow-sm border border-gray-200 sm:rounded-lg sm:px-10">
+                <div className="bg-white py-8 px-4 border border-gray-200 sm:rounded-lg sm:px-10">
                     {isExpired && (
-                        <div className="mb-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 text-sm text-yellow-700">
+                        <div className="mb-4 rounded-md border border-yellow-200 bg-yellow-50 p-4 text-sm text-yellow-700">
                             Your session has expired. Please sign in again.
                         </div>
                     )}
                     {error && (
-                        <div className="mb-4 bg-red-50 border-l-4 border-red-400 p-4 text-sm text-red-700">
+                        <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700">
                             {error}
                         </div>
                     )}
@@ -77,7 +77,7 @@ export default function Login() {
                                     required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -95,7 +95,7 @@ export default function Login() {
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-600 focus:border-green-600 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -104,7 +104,7 @@ export default function Login() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md text-sm font-medium text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:opacity-50"
                             >
                                 {loading ? 'Signing in...' : 'Sign in'}
                             </button>
@@ -124,7 +124,7 @@ export default function Login() {
                         <div className="mt-6 text-center">
                             <Link
                                 to="/register"
-                                className="font-medium text-blue-600 hover:text-blue-700 text-sm"
+                                className="font-medium text-green-700 hover:text-green-800 text-sm"
                             >
                                 Create an account
                             </Link>

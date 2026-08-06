@@ -100,7 +100,7 @@ export default function Profile() {
             </div>
 
             <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                <div className="bg-white border border-gray-200 rounded-lg p-6">
                     <h2 className="text-lg font-semibold text-slate-900 mb-4">Profile Information</h2>
 
                     {profileError && (
@@ -109,7 +109,7 @@ export default function Profile() {
                         </div>
                     )}
                     {profileSuccess && (
-                        <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                            <div className="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
                             {profileSuccess}
                         </div>
                     )}
@@ -125,7 +125,7 @@ export default function Profile() {
                                     required
                                     value={formData.name}
                                     onChange={handleInputChange}
-                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                                 />
                             </div>
                             <div>
@@ -137,7 +137,7 @@ export default function Profile() {
                                     required
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -164,7 +164,7 @@ export default function Profile() {
                             <button
                                 type="submit"
                                 disabled={savingProfile}
-                                className="inline-flex justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 disabled:opacity-50"
+                                className="inline-flex justify-center rounded-md bg-green-700 px-4 py-2 text-sm font-semibold text-white hover:bg-green-800 disabled:opacity-50"
                             >
                                 {savingProfile ? 'Saving...' : 'Save Profile'}
                             </button>
@@ -172,7 +172,7 @@ export default function Profile() {
                     </form>
                 </div>
 
-                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                <div className="bg-white border border-gray-200 rounded-lg p-6">
                     <h2 className="text-lg font-semibold text-slate-900 mb-4">Change Password</h2>
 
                     {passwordError && (
@@ -181,7 +181,7 @@ export default function Profile() {
                         </div>
                     )}
                     {passwordSuccess && (
-                        <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                            <div className="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
                             {passwordSuccess}
                         </div>
                     )}
@@ -196,7 +196,7 @@ export default function Profile() {
                                 required
                                 value={formData.current_password}
                                 onChange={handleInputChange}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                className="mt-1 block w-full rounded-md border-gray-300 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                             />
                         </div>
                         <div>
@@ -208,7 +208,7 @@ export default function Profile() {
                                 required
                                 value={formData.password}
                                 onChange={handleInputChange}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                className="mt-1 block w-full rounded-md border-gray-300 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                             />
                         </div>
                         <div>
@@ -220,14 +220,14 @@ export default function Profile() {
                                 required
                                 value={formData.password_confirmation}
                                 onChange={handleInputChange}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                className="mt-1 block w-full rounded-md border-gray-300 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                             />
                         </div>
                         <div className="flex justify-end pt-4 border-t border-slate-200">
                             <button
                                 type="submit"
                                 disabled={savingPassword}
-                                className="inline-flex justify-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 disabled:opacity-50"
+                                className="inline-flex justify-center rounded-md bg-green-700 px-4 py-2 text-sm font-semibold text-white hover:bg-green-800 disabled:opacity-50"
                             >
                                 {savingPassword ? 'Changing...' : 'Change Password'}
                             </button>

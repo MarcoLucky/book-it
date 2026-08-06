@@ -75,7 +75,7 @@ export default function BookingsList() {
                 </div>
                 <Link
                     to="/amenities"
-                    className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                    className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md text-white bg-green-700 hover:bg-green-800 transition-colors"
                 >
                     Book New Facility
                 </Link>
@@ -84,7 +84,7 @@ export default function BookingsList() {
             {loading ? (
                 <div className="text-gray-500 font-medium py-4">Loading your bookings...</div>
             ) : (
-                <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
@@ -111,7 +111,7 @@ export default function BookingsList() {
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200 text-sm">
                                 {bookings.map((booking) => (
-                                    <tr key={booking.id} className="hover:bg-slate-50 transition-colors">
+                                    <tr key={booking.id} className="hover:bg-gray-50 transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap font-semibold text-slate-900">
                                             {booking.amenity?.name}
                                         </td>
@@ -134,7 +134,7 @@ export default function BookingsList() {
                                                 <button
                                                     onClick={() => navigate(`/bookings/edit/${booking.id}`)}
                                                     disabled={actionLoading}
-                                                    className="text-blue-600 hover:text-blue-900 font-semibold disabled:opacity-50"
+                                                    className="text-green-700 hover:text-green-900 font-semibold disabled:opacity-50"
                                                 >
                                                     Edit
                                                 </button>
